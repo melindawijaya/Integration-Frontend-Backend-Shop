@@ -11,7 +11,7 @@ export const RegisterPage = () => {
         </h1>
         <FormRegister />
         <p className="text-gray-400 mt-4 text-center">
-          Have an account?{" "}
+          Already have an account?{" "}
           <Link to="/login" className="text-neon-blue hover:underline">
             Login
           </Link>

@@ -1,46 +1,40 @@
 import { useState } from "react";
-import "./NavbarWithStyling.css";
-import About from "../about/About";
-import Button from "../../components/Elements/button/HoverButton";
+// import "./NavbarWithStyling.css";
+// import About from "../about/About";
+// import Button from "../../components/Elements/button/HoverButton";
 
-const NavbarWithStyling = ({ menu, name, age, address }) => {
-    const [biodata, setBiodata] = useState({});
-
-    function handleClick(name) {
-        console.log(`clicked ${name}`);
-        setBiodata({ ...biodata, name: name, age: age, address: address });
-    }
-
+const NavbarWithStyling = () => {
     return (
         <>
-            <div className="navbar">
-                <header></header>
-                <h1 className="title">FSW 2 - {name}</h1>
-                <ul className="list">
-                    <li className="item">
-                        <a href="#" className="link">
-                            Home
-                        </a>
-                    </li>
-                    {menu &&
-                        menu.map((item, index) => (
-                            <li key={index} className="item">
-                                <a href="#" className="link">
-                                    {item}
-                                </a>
-                            </li>
-                        ))}
-                    <li className="item">
-                        <a href="#" className="link">
-                            Logout
-                        </a>
-                    </li>
-                    <Button onSelect={() => handleClick(name)}>Click me</Button>
-                </ul>
+        <nav className="bg-transparent">
+            <div className="container mx-auto flex items-center justify-between py-4">
+                <a href="index.html">
+                    <img
+                        src="images/logo.png"
+                        alt="BCR Logo"
+                        className="w-24 h-8"
+                    />
+                </a>
+                <button
+                    className="text-gray-700 md:hidden focus:outline-none"
+                    type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasRight"
+                    aria-controls="offcanvasRight"
+                >
+                    <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+                <div className="hidden md:flex space-x-8">
+                    <a href="#ourservices" className="text-gray-700 hover:text-blue-500">Our Services</a>
+                    <a href="#whyus" className="text-gray-700 hover:text-blue-500">Why Us</a>
+                    <a href="#testimonial" className="text-gray-700 hover:text-blue-500">Testimonial</a>
+                    <a href="#faq" className="text-gray-700 hover:text-blue-500">FAQ</a>
+                    <button className="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-700">Register</button>
+                </div>
             </div>
-            <div>
-                <About name={biodata.name} age={biodata.age} address={biodata.address} />
-            </div>
+        </nav>
         </>
     );
 };
