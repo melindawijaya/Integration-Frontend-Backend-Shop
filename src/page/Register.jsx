@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { FormRegister } from "../components/Fragments/FormRegister";
 import { AuthLayout } from "../Layouts/AuthLayout";
 
 export const RegisterPage = () => {
