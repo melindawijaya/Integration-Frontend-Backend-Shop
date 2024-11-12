@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { FormRegister } from "../components/Fragments/FormRegister";
 import { AuthLayout } from "../Layouts/AuthLayout";
 
 export const RegisterPage = () => {
@@ -11,7 +10,7 @@ export const RegisterPage = () => {
         </h1>
         <FormRegister />
         <p className="text-gray-400 mt-4 text-center">
-          Already have an account?{" "}
+          Have an account?{" "}
           <Link to="/login" className="text-neon-blue hover:underline">
             Login
           </Link>
