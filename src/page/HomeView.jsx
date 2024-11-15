@@ -13,12 +13,10 @@ const people = [
 ];
 
 function HomeView() {
-  // store data secara state react nya
   const [shops, setShops] = useState([]);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // fetch data => fetch / axios
   useEffect(() => {
     const fetchShops = async () => {
       setLoading(true);
@@ -58,7 +56,7 @@ function HomeView() {
         <div className="mx-auto grid max-w-7xl gap-20 px-6 lg:px-8 xl:grid-cols-3 tex">
           <div className="max-w-xl">
             <h2 className="text-pretty text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl">
-              Meet our leadership
+              Welcome to FunShop 🙌
             </h2>
             <p className="mt-6 text-lg/8 text-gray-600">
               We’re a dynamic group of individuals who are passionate about what
@@ -94,28 +92,6 @@ function HomeView() {
       </div>
 
       {/* header */}
-      <header className="flex justify-between p-4 bg-white shadow-md">
-        <div className="flex items-center space-x-4">
-          <h1 className="text-lg font-bold text-blue-800">Binar Car Rental</h1>
-          <nav className="hidden md:flex space-x-4">
-            <a href="#" className="text-gray-700">
-              Our Services
-            </a>
-            <a href="#" className="text-gray-700">
-              Why Us
-            </a>
-            <a href="#" className="text-gray-700">
-              Testimonial
-            </a>
-            <a href="#" className="text-gray-700">
-              FAQ
-            </a>
-          </nav>
-        </div>
-        <button className="px-4 py-2 text-white bg-green-500 rounded-md">
-          Register
-        </button>
-      </header>
       <main className="text-center">
         {loading && <p> loading... </p>}
         {error && <p className="text-red-500">{error}</p>}
@@ -129,25 +105,24 @@ function HomeView() {
                   key={index}
                   className="p-4 border rounded-md bg-white shadow-md"
                 >
+                  <h3 className="font-bold text-xl mb-5">{shop.products[0].name}</h3>
                   <img
                     src={shop.products[0].images[0]}
                     alt={shop.products[0].name}
                     className="w-full h-40 object-cover mb-4"
                   />
-                  <h3 className="font-semibold">{shop.products[0].name}</h3>
-                  <p className="text-green-500 font-bold">
-                    Rp {shop.products[0].price} / hari
+                  <p className="text-blue-500 font-bold text-xl">
+                    Rp {shop.products[0].price}
                   </p>
                   <p className="text-gray-600 mt-2 text-sm">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                   </p>
                   <div className="flex items-center justify-between text-gray-500 text-sm mt-4">
-                    <span>4 orang</span>
-                    <span>Manual</span>
-                    <span>Tahun 2020</span>
+                    <span>Stok: {shop.products[0].stock}</span>
+                    <span>Toko: {shop.name}</span>
                   </div>
-                  <button className="w-full px-4 py-2 mt-4 text-white bg-green-500 rounded-md">
-                    Pilih Mobil
+                  <button className="w-full px-4 py-2 mt-4 text-white bg-blue-500 hover:bg-blue-600 rounded-md">
+                    Pilih Product
                   </button>
                 </div>
               ))

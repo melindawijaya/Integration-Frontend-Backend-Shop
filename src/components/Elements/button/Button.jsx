@@ -1,7 +1,7 @@
-export const Button = ({ children, handerAction }) => {
+export const Button = ({ children, handlerAction }) => {
   return (
     <div>
-      <button onClick={handerAction}>{children}</button>
+      <button onClick={handlerAction}>{children}</button>
     </div>
   );
 };
