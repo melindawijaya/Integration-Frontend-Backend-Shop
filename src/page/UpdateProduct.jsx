@@ -3,7 +3,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const UpdateProduct = () => {
-  const { id } = useParams(); // Ambil ID produk dari URL
+  const { id } = useParams(); 
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -17,7 +17,6 @@ const UpdateProduct = () => {
       return;
     }
 
-    // Ambil detail produk berdasarkan ID
     const fetchProduct = async () => {
       try {
         const token = localStorage.getItem("token");
@@ -64,7 +63,7 @@ const UpdateProduct = () => {
         setSuccess("Product updated successfully.");
         setError(null);
         setTimeout(() => {
-          navigate("/products"); // Navigasi ke halaman produk setelah update
+          navigate("/products"); 
         }, 2000);
       } else {
         setError(response.data.message || "Failed to update product.");

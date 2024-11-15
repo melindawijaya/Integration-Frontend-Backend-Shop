@@ -3,8 +3,8 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 
 function DetailProduct() {
-  const { id } = useParams(); // Ambil ID dari URL
-  const [shop, setShops] = useState(null); // State untuk produk
+  const { id } = useParams(); 
+  const [shop, setShops] = useState(null); 
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ function DetailProduct() {
 
         const data = response.data;
         if (data.isSuccess) {
-          setShops(data.data.product); // Update state dengan data produk
+          setShops(data.data.product); 
         } else {
           setError("Failed to fetch product details.");
         }

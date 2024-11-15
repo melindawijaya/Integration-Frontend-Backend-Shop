@@ -30,29 +30,6 @@ const CreateShop = () => {
   };
 
   return (
-    // <form onSubmit={handleSubmit}>
-    //   <div>
-    //     <label>Name:</label>
-    //     <input
-    //       type="text"
-    //       value={name}
-    //       onChange={(e) => setName(e.target.value)}
-    //       required
-    //     />
-    //   </div>
-    //   <div>
-    //     <label>Admin Email:</label>
-    //     <input
-    //       type="email"
-    //       value={adminEmail}
-    //       onChange={(e) => setAdminEmail(e.target.value)}
-    //       required
-    //     />
-    //   </div>
-    //   <button type="submit">Create Shop</button>
-    //   {error && <p classNameName="error">{error}</p>}
-    //   {success && <p classNameName="success">{success}</p>}
-    // </form>
     <div className="min-h-screen w-full p-6 bg-gray-100 flex items-center justify-center">
       <div className="container max-w-screen-lg mx-auto">
         <div>

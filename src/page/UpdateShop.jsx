@@ -4,7 +4,7 @@ import axios from "axios";
 
 const UpdateShop = () => {
   const { id } = useParams();
-  const navigate = useNavigate(); // Navigasi untuk tombol back
+  const navigate = useNavigate(); 
   const [name, setName] = useState("");
   const [adminEmail, setAdminEmail] = useState("");
   const [error, setError] = useState(null);

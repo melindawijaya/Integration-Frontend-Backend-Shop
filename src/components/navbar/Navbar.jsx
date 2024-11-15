@@ -10,9 +10,10 @@ import {
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "Homepage", href: "/", current: true },
-  { name: "Products", href: "/products", current: false },
-  { name: "Shops", href: "/shops", current: false },
+  { name: "Dashboard", href: "#", current: true },
+  { name: "Team", href: "#", current: false },
+  { name: "Projects", href: "#", current: false },
+  { name: "Calendar", href: "#", current: false },
 ];
 
 function classNames(...classes) {
@@ -113,7 +114,7 @@ function Navbar({ onLogout }) {
                 <MenuItem>
                   <button
                     href="#"
-                    className=" px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:outline-none"
+                    className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:outline-none"
                     onClick={onLogout}
                   >
                     Sign out
