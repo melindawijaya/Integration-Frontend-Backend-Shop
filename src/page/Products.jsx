@@ -7,6 +7,9 @@ import "../App.css";
 function Products() {
   const [products, setProducts] = useState([]);
   const [error, setError] = useState(null);
+  const [shopName, setShopName] = useState("");
+  const [productName, setProductName] = useState("");
+  const [stock, setStock] = useState("");
   const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -45,6 +48,10 @@ function Products() {
     fetchProducts(currentPage);
   }, [currentPage]);
 
+  const handleApplyFilters = () => {
+    setPage(1); 
+  };
+
   const handlePreviousPage = () => {
     if (currentPage > 1) setCurrentPage(currentPage - 1);
   };
@@ -55,6 +62,40 @@ function Products() {
 
   return (
     <>
+      {/* Filter Section */}
+        <section className="bg-gray-100 p-6 rounded-lg shadow-md max-w-6xl mx-auto mt-8">
+        <h2 className="text-2xl font-semibold mb-6">Search Product By</h2>
+        <div className="flex flex-col md:flex-row md:items-center gap-4">
+          <input
+            type="text"
+            placeholder="Shop Name"
+            value={shopName}
+            onChange={(e) => setShopName(e.target.value)}
+            className="border border-gray-300 p-2 rounded-md flex-grow"
+          />
+          <input
+            type="text"
+            placeholder="Product Name"
+            value={productName}
+            onChange={(e) => setProductName(e.target.value)}
+            className="border border-gray-300 p-2 rounded-md flex-grow"
+          />
+          <input
+            type="number"
+            placeholder="Stock"
+            value={stock}
+            onChange={(e) => setStock(e.target.value)}
+            className="border border-gray-300 p-2 rounded-md flex-grow"
+          />
+          <button
+            onClick={handleApplyFilters}
+            className="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+          >
+            Apply Filters
+          </button>
+        </div>
+      </section>
+
       {/* header */}
       <main className="text-center">
         {loading && <p> loading... </p>}
@@ -70,7 +111,7 @@ function Products() {
                     key={index}
                     className="p-4 border rounded-md bg-white shadow-md"
                   >
-                    <h3 className="font-bold text-xl mb-5">{products.name}</h3>
+                    <h3 className="font-bold text-xl mb-5">{product.name}</h3>
                     <img
                       src={product.images}
                       alt={product.name}
@@ -84,7 +125,7 @@ function Products() {
                     </p>
                     <div className="flex items-center justify-between text-gray-500 text-sm mt-4">
                       <span>Stok: {product.stock}</span>
-                      <span>Toko: {product.name}</span>
+                      <span>Toko: {product.shop?.name}</span>
                     </div>
                     <button className="w-full px-4 py-2 mt-4 text-white bg-blue-500 hover:bg-blue-600 rounded-md"
                       onClick={() => navigate(`/products/${product.id}`)}>

@@ -33,14 +33,8 @@ function App() {
 
   return (
     <>
-      {isAuthenticated && <Navbar onLogout={handleLogout}/>}
-      
-      <RouterProvider router={router} />
-      {isAuthenticated && location.pathname !== "/login" && (
-        <Navbar onLogout={handleLogOut} />
-      )}
-
-      <Routes>
+      <Navbar/>
+        <Routes>
         <Route
           path="/"
           element={isAuthenticated ? <HomeView /> : <Navigate to="/login" />}
@@ -100,10 +94,6 @@ function App() {
       </Routes>
     </>
   );
-  );
 }
-
-export default App;
-
 
 export default App;

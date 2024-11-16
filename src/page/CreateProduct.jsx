@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Navbar from "../navbar/Navbar";
 
 const CreateProduct = () => {
   const [name, setName] = useState("");
@@ -44,6 +45,41 @@ const CreateProduct = () => {
   };
 
   return (
+    <>
+          {/* Filter Section */}
+          <section className="bg-gray-100 p-6 rounded-lg shadow-md max-w-6xl mx-auto mt-8">
+        <h2 className="text-2xl font-semibold mb-6">Search Product By</h2>
+        <div className="flex flex-col md:flex-row md:items-center gap-4">
+          <input
+            type="text"
+            placeholder="Shop Name"
+            value={shopName}
+            onChange={(e) => setShopName(e.target.value)}
+            className="border border-gray-300 p-2 rounded-md flex-grow"
+          />
+          <input
+            type="text"
+            placeholder="Product Name"
+            value={productName}
+            onChange={(e) => setProductName(e.target.value)}
+            className="border border-gray-300 p-2 rounded-md flex-grow"
+          />
+          <input
+            type="number"
+            placeholder="Stock"
+            value={stock}
+            onChange={(e) => setStock(e.target.value)}
+            className="border border-gray-300 p-2 rounded-md flex-grow"
+          />
+          <button
+            onClick={handleApplyFilters}
+            className="px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+          >
+            Apply Filters
+          </button>
+        </div>
+      </section>
+      
     <div className="min-h-screen w-full p-6 bg-gray-100 flex items-center justify-center">
       <div className="container max-w-screen-lg mx-auto">
         <div>
@@ -137,6 +173,7 @@ const CreateProduct = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
